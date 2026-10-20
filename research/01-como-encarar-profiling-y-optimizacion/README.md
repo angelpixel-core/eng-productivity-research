@@ -21,7 +21,7 @@ has_code_benchmark: true
 
 # 1. "¿Cómo encaras el profiling y optimización de un servicio Python que consume demasiada CPU o memoria procesando métricas de ingeniería?"
 
-### Respuesta:
+### Respuesta
 
 - **Evito adivinar:** Uso herramientas de profiling sin instrumentación invasiva como `py-spy` (toma muestras del stack trace en tiempo de ejecución con overhead menor al 1%) para generar un flamegraph e identificar funciones "calientes" en CPU.
 

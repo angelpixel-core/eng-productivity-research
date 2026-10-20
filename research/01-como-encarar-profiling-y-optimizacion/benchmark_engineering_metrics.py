@@ -143,7 +143,9 @@ def profile_execution(func, name: str):
 
     # C. Análisis de Llamadas Calientes (Top 5 cuellos de botella de CPU)
     s = io.StringIO()
-    ps = pstats.Stats(profiler, stream=s).sort_stats("tottime")
+    # strip_dirs() elimina las rutas absolutas del sistema de archivos,
+    # mostrando únicamente nombres relativos limpios independientes del host.
+    ps = pstats.Stats(profiler, stream=s).strip_dirs().sort_stats("tottime")
     ps.print_stats(5)
 
     print("\n--- Top 5 Cuellos de Botella (cProfile) ---")
